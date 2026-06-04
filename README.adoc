@@ -6,6 +6,8 @@ answers in the Nigerian Constitution and the Benson Idahosa University student
 handbook instead of hallucinating.
 
 🔗 **Live demo:** https://law-graphkb.streamlit.app/
+*Sample output:** https://github.com/Aibuedefe-bot/Graph-RAG/blob/main/sample_output
+(sample_output.jpeg)
 
 ## Why GraphRAG?
 Plain RAG retrieves isolated text chunks. A graph captures *relationships* between
