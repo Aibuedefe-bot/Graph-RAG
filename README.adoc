@@ -1,40 +1,41 @@
-= Build an Neo4j-backed Chatbot using Python
+# ⚖️ Legal GraphRAG Assistant
 
-This repository accompanies the link:https://graphacademy.neo4j.com/courses/llm-chatbot-python[Build an Neo4j-backed Chatbot using Python^] course on link:https://graphacademy.neo4j.com/?ref=github[Neo4j GraphAcademy^].
+A GraphRAG-powered chatbot that answers students' legal and policy questions by
+combining a Neo4j knowledge graph with vector retrieval and an LLM — grounding
+answers in the Nigerian Constitution and the Benson Idahosa University student
+handbook instead of hallucinating.
 
-For a complete walkthrough of this repository, link:https://graphacademy.neo4j.com/courses/llm-chatbot-python/?ref=github[enrol now^].
+🔗 **Live demo:** https://law-graphkb.streamlit.app/
 
-link:https://codespaces.new/neo4j-graphacademy/llm-chatbot-python[image:https://github.com/codespaces/badge.svg[Open in GitHub Codespaces]^]
+## Why GraphRAG?
+Plain RAG retrieves isolated text chunks. A graph captures *relationships* between
+legal concepts, sections, and clauses — so the assistant reasons across connected
+provisions, not just the nearest paragraph.
 
-== Running the application
+## What it does
+- Answers questions on the Nigerian Constitution and BIU student handbook
+- Retrieves over a Neo4j graph + vector index for grounded, traceable answers
+- Clean Streamlit chat interface built for students
 
-To run the application, you must install the libraries listed in `requirements.txt`.
+## Architecture
+Streamlit UI → OpenAI LLM → Neo4j graph + vector retrieval → grounded answer
 
-[source,sh]
-pip install -r requirements.txt
+## Stack
+Python · Neo4j · OpenAI · LangChain · Streamlit
 
+## What I built
+Started from Neo4j GraphAcademy's LLM-chatbot foundation, then extended it into a
+legal-domain assistant: ingested and modelled the Nigerian Constitution and the BIU
+student handbook into the graph, wired in OpenAI for generation, and built a custom
+Streamlit frontend for students.
 
-Then run the `streamlit run` command to start the app on link:http://localhost:8501/[http://localhost:8501/^].
+## Run it locally
+1. `pip install -r requirements.txt`
+2. Add your Neo4j + OpenAI keys to `.streamlit/secrets.toml`
+3. `streamlit run bot.py`
 
-[source,sh]
-streamlit run bot.py
+## ⚠️ Disclaimer
+For informational and educational use only — not legal advice.
 
-== Tests
-
-To run the solution tests: 
-
-. Create Neo4j instance with the `recommendations` dataset
-. Run the link:https://raw.githubusercontent.com/neo4j-graphacademy/courses/refs/heads/main/asciidoc/courses/llm-chatbot-python/modules/3-tools/lessons/1-vector-tool/reset.cypher[Cypher to add embeddings and create the vector index^].
-. Create a virtual environment and install the requirements.
-+ 
-[source,sh]
-pip install -r requirements.txt
-. Install `pytest`
-+
-[source,sh]
-pip install pytest
-. Create a `secrets.toml` file in the `.streamlit` directory. Use `secrets.toml.example` as a template.
-. Run the tests
-+
-[source,sh]
-pytest
+## Credits
+Graph + vector foundation adapted from Neo4j GraphAcademy's *LLM Chatbot with Python* course.
